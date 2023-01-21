@@ -5,7 +5,7 @@ class AssetsController < ApplicationController
      
   
       def create
-        new_asset = @current_user.assets.create!(asset_params)
+        new_asset = Asset.create!(asset_params)
         render json: new_asset, status: :created
       end
     
@@ -28,7 +28,7 @@ class AssetsController < ApplicationController
       end
     
       def asset_params
-        params.require(:asset).permit(:price, :name,  :category_id, :description, :quantity, :status ,:image_url, :location, :released_year)
+        params.require(:asset).permit(:price, :name, :category_id, :description, :quantity, :status ,:image_url, :location, :released_year)
       end
       
       # def authorize_user
