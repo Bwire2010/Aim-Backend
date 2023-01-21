@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/health_check', to: proc { [200, {}, ['success']] }
   resources :categories
   resources :employees
   resources :requests
