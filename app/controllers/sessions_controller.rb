@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       # byebug
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
-        render json: Asset.all
+        render json: user, status: :created
       else
         render json: { error: { login: 'Invalid Username or password' } }, status: :unauthorized
       end
