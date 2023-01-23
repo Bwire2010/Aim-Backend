@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessed_entity
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   
-    skip_before_action :authorize, only: :create
+    # skip_before_action :authorize, only: :create
   
      # Everything pertaining to signup.... Done 
     def create
